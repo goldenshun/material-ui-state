@@ -1,23 +1,23 @@
 import { useState } from 'react';
 
-const useMenuState = () => {
+const usePopperState = () => {
   const [anchorEl, setAnchorEl] = useState(null);
 
-  const closeMenu = () => {
+  const closePopper = () => {
     setAnchorEl(null);
   };
 
-  const menuState = {
+  const popperState = {
     anchorEl,
     open: Boolean(anchorEl),
-    onClose: closeMenu,
+    onClose: closePopper,
   };
 
-  const menuAnchorState = {
+  const popperAnchorState = {
     onClick: e => setAnchorEl(anchorEl ? null : e.currentTarget),
   };
 
-  return { closeMenu, menuState, menuAnchorState };
+  return { closePopper, popperState, popperAnchorState };
 };
 
-export default useMenuState;
+export default usePopperState;

@@ -8,7 +8,7 @@ const MenuPage = () => {
 
   return (
     <>
-      <Typography variant="h1">Menus</Typography>
+      <Typography variant="h1">Menu</Typography>
       <div>
         <Button {...menuAnchorState}>
          Open Menu
