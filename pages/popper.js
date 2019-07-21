@@ -4,7 +4,7 @@ import {
 import usePoppperState from '../components/usePopperState';
 
 const PopperPage = () => {
-  const { closePopper, popperState, popperAnchorState } = usePoppperState();
+  const { popperState, popperAnchorState } = usePoppperState();
 
   return (
     <>
