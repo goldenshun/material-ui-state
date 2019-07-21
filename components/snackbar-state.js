@@ -6,8 +6,9 @@ export const SnackbarContext = createContext();
 
 export const SnackbarProvider = (props) => {
   const { children } = props;
-  const [snackbarOptions, setSnackbarOptions] = useState(null);
+  const [snackbarOptions, setSnackbarOptions] = useState({});
   const [isOpen, setIsOpen] = useState(false);
+  const { content, onClose, ...rest } = snackbarOptions;
 
   const showSnackbar = (options) => {
     setSnackbarOptions(options);
@@ -16,15 +17,18 @@ export const SnackbarProvider = (props) => {
 
   const handleClose = () => {
     setIsOpen(false);
+    if (onClose) onClose();
   };
 
+  console.log('render');
   return (
     <SnackbarContext.Provider value={{ showSnackbar }}>
       {children}
       <Snackbar
         open={isOpen}
-        autoHideDuration={6000}
+        autoHideDuration={2000}
         onClose={handleClose}
+        {...rest}
       >
         <SnackbarContent
           action={[
@@ -32,7 +36,7 @@ export const SnackbarProvider = (props) => {
               <Icons.Close />
             </IconButton>,
           ]}
-          {...snackbarOptions}
+          {...content}
         />
       </Snackbar>
     </SnackbarContext.Provider>
