@@ -13,11 +13,22 @@ const DrawerPage = () => {
         <Button {...drawerTriggerState}>
          Open Drawer
         </Button>
-        <Drawer {...drawerState}>
-          Hey
-        </Drawer>
+        <CustomDrawer {...drawerState}>
+          <div>
+            Hello. I am in a Drawer.
+          </div>
+        </CustomDrawer>
       </div>
     </>
+  );
+};
+
+const CustomDrawer = (props) => {
+  const { children, ...rest } = props;
+  return (
+    <Drawer anchor="right" {...rest}>
+      {children}
+    </Drawer>
   );
 };
 
