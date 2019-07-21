@@ -1,9 +1,11 @@
+import { useState } from 'react';
 import {
-  Button, Drawer, Typography,
+  Button, ButtonGroup, Drawer, Typography,
 } from '@material-ui/core';
 import useDrawerState from '../components/useDrawerState';
 
 const DrawerPage = () => {
+  const [count, setCount] = useState(0);
   const { drawerState, drawerTriggerState } = useDrawerState();
 
   return (
@@ -13,9 +15,13 @@ const DrawerPage = () => {
         <Button {...drawerTriggerState}>
          Open Drawer
         </Button>
+        <Typography variant="body2">{`Count: ${count}`}</Typography>
         <CustomDrawer {...drawerState}>
           <div>
-            Hello. I am in a Drawer.
+            <ButtonGroup variant="contained" color="primary">
+              <Button onClick={() => setCount(count + 1)}>Increment</Button>
+              <Button onClick={() => setCount(count + -1)}>Decrement</Button>
+            </ButtonGroup>
           </div>
         </CustomDrawer>
       </div>
