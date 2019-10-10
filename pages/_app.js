@@ -3,7 +3,6 @@ import { compose } from 'lodash/fp';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { withMaterialUI } from '../components/material-ui-next';
 import theme from '../lib/theme';
-import MuiStateProvider from '../components/MuiStateProvider';
 
 const muiTheme = createMuiTheme(theme);
 
@@ -13,9 +12,7 @@ class NextApp extends App {
 
     return (
       <Container>
-        <MuiStateProvider>
-          <Component {...pageProps} />
-        </MuiStateProvider>
+        <Component {...pageProps} />
       </Container>
     );
   }
