@@ -7,16 +7,22 @@ const useDrawerState = () => {
     setOpen(false);
   };
 
+  const openDrawer = () => {
+    setOpen(true);
+  };
+
   const drawerState = {
     open,
     onClose: closeDrawer,
   };
 
   const drawerTriggerState = {
-    onClick: () => setOpen(!open),
+    onClick: openDrawer,
   };
 
-  return { closeDrawer, drawerState, drawerTriggerState };
+  return {
+    closeDrawer, openDrawer, drawerState, drawerTriggerState,
+  };
 };
 
 export default useDrawerState;

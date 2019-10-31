@@ -6,7 +6,7 @@ import useDrawerState from '../components/useDrawerState';
 
 const DrawerPage = () => {
   const [count, setCount] = useState(0);
-  const { drawerState, drawerTriggerState } = useDrawerState();
+  const { closeDrawer, drawerState, drawerTriggerState } = useDrawerState();
 
   return (
     <>
@@ -22,6 +22,9 @@ const DrawerPage = () => {
               <Button onClick={() => setCount(count + 1)}>Increment</Button>
               <Button onClick={() => setCount(count + -1)}>Decrement</Button>
             </ButtonGroup>
+          </div>
+          <div>
+            <Button onClick={closeDrawer}>Close</Button>
           </div>
         </CustomDrawer>
       </div>
