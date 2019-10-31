@@ -20,7 +20,6 @@ export const SnackbarProvider = (props) => {
     if (onClose) onClose();
   };
 
-  console.log('render');
   return (
     <SnackbarContext.Provider value={{ showSnackbar }}>
       {children}

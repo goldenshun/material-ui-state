@@ -2,6 +2,18 @@ import { Button, Typography } from '@material-ui/core';
 import { useSnackbar } from '../components/snackbar-state';
 
 const SnackbarPage = () => {
+  console.log('SnackbarPage render');
+  return (
+    <>
+      <Typography variant="h1">Snackbar</Typography>
+      <div>
+        <SnackbarButtonExample />
+      </div>
+    </>
+  );
+};
+
+const SnackbarButtonExample = () => {
   const { showSnackbar } = useSnackbar();
 
   const handleButtonClick = () => showSnackbar({
@@ -11,15 +23,12 @@ const SnackbarPage = () => {
     },
   });
 
+  // When the snackbar is opened, only the consumers of snackbars are re-rendered.
+  console.log('SnackbarButtonExample render');
   return (
-    <>
-      <Typography variant="h1">Snackbar</Typography>
-      <div>
-        <Button onClick={handleButtonClick}>
-         Show Snackbar
-        </Button>
-      </div>
-    </>
+    <Button onClick={handleButtonClick}>
+     Show Snackbar
+    </Button>
   );
 };
 
